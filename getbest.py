@@ -31,7 +31,10 @@ def findTop(f,num_col, mark_col):
     return best_idx, best
 
 if __name__ == "__main__":
-    f = open(sys.argv[1])
-    num_col, mark_col = getCols(f)
-    best_idx, best = findTop(f,num_col,mark_col)
-    print("The top student was student %s with %d"%(best_idx,best))
+    if len(sys.argv) != 2:
+        print("Usage: python getbest.py <csv_file>")
+        sys.exit(1)
+    with open(sys.argv[1]) as f:
+        num_col, mark_col = getCols(f)
+        best_idx, best = findTop(f, num_col, mark_col)
+    print("The top student was student %s with %d" % (best_idx, best))
