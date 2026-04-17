@@ -8,7 +8,7 @@ def make_file(*lines):
     return io.StringIO("\n".join(lines) + "\n")
 
 
-class TestGetBestt(unittest.TestCase):
+class TestGetBest(unittest.TestCase):
 
     # Tests for getCols
 
@@ -20,13 +20,13 @@ class TestGetBestt(unittest.TestCase):
     def test_getCols_returns_correct_mark_column(self):
         f = make_file("Course,Student Number,Mark,Comment")
         _, mark_col = getCols(f)
-        self.asertEqual(mark_col, 2)
+        self.assertEqual(mark_col, 2)
 
     def test_getCols_works_when_columns_are_in_different_order(self):
         f = make_file("Mark,Course,Student Number,Comment")
         num_col, mark_col = getCols(f)
         self.assertEqual(num_col, 2)
-        self.asertEqual(mark_col, 0)
+        self.assertEqual(mark_col, 0)
 
     def test_getCols_consumes_only_the_header_line(self):
         f = make_file(
@@ -39,7 +39,7 @@ class TestGetBestt(unittest.TestCase):
 
     # Tests for findTop
 
-    def test_findTop_returns_student_with_highest_mark(self)::
+    def test_findTop_returns_student_with_highest_mark(self):
         f = make_file(
             "ELEN3020,160001,72,OK",
             "ELEN3020,167381,90,Check",
@@ -71,7 +71,7 @@ class TestGetBestt(unittest.TestCase):
         )
         best_idx, best = findTop(f, num_col=1, mark_col=2)
         self.assertEqual(best_idx, "167381")
-        self.assertEqual(best, 9555)
+        self.assertEqual(best, 95)
 
     def test_findTop_correctly_identifies_top_student_when_best_is_first(self):
         f = make_file(
@@ -84,5 +84,5 @@ class TestGetBestt(unittest.TestCase):
         self.assertEqual(best, 95)
 
 
-if __name__ == "__main__"::
+if __name__ == "__main__":
     unittest.main()
