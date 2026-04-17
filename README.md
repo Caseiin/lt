@@ -1,11 +1,14 @@
 # Leruo Phiri 2868956
 
 This is my Lab Repository
+
 Bugs found:
 
-index for getCols did not increase. Solution: Made use of enumerate to go through the columns
+1)index for getCols did not increase.
+Solution: Made use of enumerate to go through the columns
 
-index for the current best student/ mark is not set to the current student within the loop when the mark is better than the current best Solution: Assigned the best_idx to the current best
+2)index for the current best student/ mark is not set to the current student within the loop when the mark is better than the current best.
+Solution: Assigned the best_idx to the current best
 
 Testing Notes made:
 
