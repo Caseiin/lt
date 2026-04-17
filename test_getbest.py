@@ -53,7 +53,13 @@ class TestGetBest(unittest.TestCase):
 
         self.assertEqual(best_idx, "167381")
 
-        
+    def test_findTop_single_student(self):
+        f = make_file("ELEN3020,160001,72,OK")
+
+        best_idx, best = findTop(f, num_col=1, mark_col=2)
+
+        self.assertEqual(best_idx, "160001")
+        self.assertEqual(best, 72)
 
 
 
