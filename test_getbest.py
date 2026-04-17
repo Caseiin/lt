@@ -29,6 +29,30 @@ class TestGetBest(unittest.TestCase):
         self.assertEqual(num_col, 2)
         self.assertEqual(mark_col, 0)
 
+    # def test_getCols_only_reads_header(self):
+    #     f = make_file(
+    #         "Course,Student Number,Mark,Comment",
+    #         "ELEN3020,160001,72,OK",
+    #     )
+
+    #     getCols(f)
+    #     remaining = f.read()
+
+    #     self.assertIn("160001", remaining)
+
+    # Tests for findTop
+
+    def test_findTop_highest_student(self):
+        f = make_file(
+            "ELEN3020,160001,72,OK",
+            "ELEN3020,167381,90,Check",
+            "ELEN3020,143211,83,-",
+        )
+
+        best_idx, _ = findTop(f, num_col=1, mark_col=2)
+
+        self.assertEqual(best_idx, "167381")
+
         
 
 
