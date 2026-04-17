@@ -22,6 +22,15 @@ class TestGetBest(unittest.TestCase):
         _, mark_col = getCols(f)
         self.assertEqual(mark_col,2)
 
-    
+    def test_getCols_different_order(self):
+        f = make_file("Mark,Course,Student Number,Comment")
+        num_col, mark_col = getCols(f)
+
+        self.assertEqual(num_col, 2)
+        self.assertEqual(mark_col, 0)
+
+        
+
+
 
 
