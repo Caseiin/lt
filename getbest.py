@@ -6,6 +6,11 @@ def getCols(f):
     ''' Identify the columns that contain the marks and student numbers '''
     headings = f.readline().strip().split(",")
     # i=1 Skips the first column as it contains only the Course however first bug: index does not enumerate
+
+    #cached the variabled and defaulted them for safety
+    num_col = None
+    mark_col = None
+
     for i, head in enumerate(headings): #counts throw the column
         if head == "Student Number": num_col=i
         elif head == "Mark" : mark_col = i
@@ -25,7 +30,8 @@ def findTop(f,num_col, mark_col):
             best_idx = data[num_col] # tracks the student number
     return best_idx, best
 
-f = open(sys.argv[1])
-num_col, mark_col = getCols(f)
-best_idx, best = findTop(f,num_col,mark_col)
-print("The top student was student %s with %d"%(best_idx,best))
+if __name__ == "__main__":
+    f = open(sys.argv[1])
+    num_col, mark_col = getCols(f)
+    best_idx, best = findTop(f,num_col,mark_col)
+    print("The top student was student %s with %d"%(best_idx,best))
