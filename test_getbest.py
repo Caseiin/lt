@@ -37,7 +37,7 @@ class TestGetBest(unittest.TestCase):
         remaining = f.read()
         self.assertIn("160001", remaining)
 
-    # ── Tests for findTop ─────────────────────────────────────────────────
+    # Tests for findTop
 
     def test_findTop_returns_student_with_highest_mark(self):
         f = make_file(
