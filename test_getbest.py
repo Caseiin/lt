@@ -73,5 +73,16 @@ class TestGetBest(unittest.TestCase):
         self.assertEqual(best_idx, "167381")
         self.assertEqual(best, 95)
 
+    def test_findTop_first_row_best(self):
+        f = make_file(
+            "ELEN3020,167381,95,Check",
+            "ELEN3020,160001,55,OK",
+            "ELEN3020,143211,60,-",
+        )
+
+        best_idx, best = findTop(f, num_col=1, mark_col=2)
+
+        self.assertEqual(best_idx, "167381")
+        self.assertEqual(best, 95)
 
 
